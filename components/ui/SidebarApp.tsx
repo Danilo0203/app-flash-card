@@ -1,35 +1,38 @@
 "use client";
-import { CompassIcon, HeartIcon, HouseIcon, UserIcon } from "lucide-react";
+
 import { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./sidebar";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Dashboard } from "./Dashboard";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import LineCards from "../icons/Logo";
+import HomeIcon from "../icons/HomeIcon";
+import HeartIcon from "../icons/HeartIcon";
+import CompassIcon from "../icons/CompassIcon";
+import UserIcon from "../icons/UserIcon";
+import { TitleWelcome } from "./TitleWelcome";
 
-export const SidebarApp = () => {
+export const SidebarApp = ({ children }: { children: React.ReactNode }) => {
   const links = [
     {
       label: "Inicio",
       href: "/",
-      icon: <HouseIcon className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+      icon: <HomeIcon className="text-neutral-700 dark:text-neutral-200 size-8 flex-shrink-0" />,
     },
     {
       label: "Favoritos",
       href: "/favoritos",
-      icon: <HeartIcon className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+      icon: <HeartIcon className="text-neutral-700 dark:text-neutral-200 size-8 flex-shrink-0" />,
     },
     {
       label: "Explorar",
       href: "/explorar",
-      icon: <CompassIcon className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+      icon: <CompassIcon className="text-neutral-700 dark:text-neutral-200 size-8 flex-shrink-0" />,
     },
     {
       label: "Perfil",
       href: "/perfil",
-      icon: <UserIcon className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+      icon: <UserIcon className="text-neutral-700 dark:text-neutral-200 size-8 flex-shrink-0" />,
     },
   ];
   const [open, setOpen] = useState(false);
@@ -50,13 +53,19 @@ export const SidebarApp = () => {
           </div>
         </SidebarBody>
       </Sidebar>
-      <Dashboard />
+      <div className="flex flex-1">
+        <div className="p-2 md:p-10 flex flex-col gap-2 flex-1 w-full h-full dark:bg-contenedor-dark">
+          <TitleWelcome />
+          {children}
+        </div>
+      </div>
     </div>
   );
 };
+
 export const Logo = () => {
   return (
-    <Link href="#" className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20">
+    <Link href="/" className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20">
       <LineCards className="size-8 dark:text-white text-dark" />
       <motion.span
         initial={{ opacity: 0 }}
@@ -68,9 +77,10 @@ export const Logo = () => {
     </Link>
   );
 };
+
 export const LogoIcon = () => {
   return (
-    <Link href="#" className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20">
+    <Link href="/" className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20">
       <LineCards className="size-8 dark:text-white text-dark" />
     </Link>
   );

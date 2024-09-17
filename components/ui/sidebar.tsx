@@ -147,7 +147,7 @@ export const SidebarLink = ({ link, className, ...props }: { link: Links; classN
       className={cn("flex items-center justify-start gap-2  group/sidebar py-2", className)}
       {...props}
     >
-      <Button isIconOnly>{link.icon}</Button>
+      {link.icon}
       <motion.span
         animate={{
           display: animate ? (open ? "inline-block" : "none") : "inline-block",
