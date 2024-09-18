@@ -7,10 +7,10 @@ import { motion } from "framer-motion";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import LineCards from "../icons/Logo";
 import HomeIcon from "../icons/HomeIcon";
-import HeartIcon from "../icons/HeartIcon";
 import CompassIcon from "../icons/CompassIcon";
 import UserIcon from "../icons/UserIcon";
 import { TitleWelcome } from "./TitleWelcome";
+import HeartIconFill from "../icons/HeartIconFill";
 
 export const SidebarApp = ({ children }: { children: React.ReactNode }) => {
   const links = [
@@ -22,7 +22,7 @@ export const SidebarApp = ({ children }: { children: React.ReactNode }) => {
     {
       label: "Favoritos",
       href: "/favoritos",
-      icon: <HeartIcon className="text-neutral-700 dark:text-neutral-200 size-8 flex-shrink-0" />,
+      icon: <HeartIconFill className="fill-neutral-700 dark:fill-neutral-200 size-8 flex-shrink-0" />,
     },
     {
       label: "Explorar",
@@ -37,7 +37,7 @@ export const SidebarApp = ({ children }: { children: React.ReactNode }) => {
   ];
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex flex-col md:flex-row h-screen">
+    <div className="flex flex-col md:flex-row flex-1 min-h-dvh">
       <Sidebar open={open} setOpen={setOpen}>
         <SidebarBody className="justify-between gap-10">
           <div className="flex flex-col flex-[1] overflow-y-auto overflow-x-hidden">
@@ -54,7 +54,7 @@ export const SidebarApp = ({ children }: { children: React.ReactNode }) => {
         </SidebarBody>
       </Sidebar>
       <div className="flex flex-1">
-        <div className="p-2 md:p-10 flex flex-col gap-2 flex-1 w-full h-full dark:bg-contenedor-dark">
+        <div className="p-2 md:pl-28 md:p-10 flex flex-col gap-2 flex-1 w-full  min-h-dvh dark:bg-contenedor-dark">
           <TitleWelcome />
           {children}
         </div>

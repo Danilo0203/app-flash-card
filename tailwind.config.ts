@@ -19,6 +19,12 @@ const config = {
       },
     },
     extend: {
+      colors: {
+        cardElementDark: "#333741",
+        cardElementLight: "#F5F5F6",
+        textElementDark: "#F5F5F6",
+        textElementLight: "#101828",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

@@ -4,7 +4,6 @@ import Link, { LinkProps } from "next/link";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconMenu2, IconX } from "@tabler/icons-react";
-import { Button } from "@nextui-org/button";
 
 interface Links {
   label: string;
@@ -80,7 +79,7 @@ export const DesktopSidebar = ({ className, children, ...props }: React.Componen
     <>
       <motion.div
         className={cn(
-          "h-full px-4 py-4 hidden md:flex md:flex-col bg-gradient-light dark:bg-gradient-dark w-[300px] flex-shrink-0",
+          "h-auto px-4 py-4 hidden md:flex md:flex-col bg-gradient-light dark:bg-gradient-dark w-[300px] flex-shrink-0 fixed inset-y-0 left-0 z-[100]",
           className
         )}
         animate={{
