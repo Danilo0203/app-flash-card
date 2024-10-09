@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
@@ -16,7 +17,7 @@ export const CardMazos = ({
     description: string;
     link: string;
     footer: string;
-    favorito: boolean;
+    favorito?: boolean;
   }[];
   className?: string;
 }) => {

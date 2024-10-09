@@ -1,7 +1,4 @@
-"use client";
 import { CardMazos } from "@/components/ui/CardMazos";
-import { SidebarApp } from "@/components/ui/SidebarApp";
-import { TitlePage } from "@/components/ui/TitlePage";
 const projects = [
   {
     title: "Stripe",
@@ -47,10 +44,7 @@ const projects = [
 export default function Home() {
   return (
     <main className="min-h-dvh">
-      <SidebarApp>
-        <TitlePage />
-        <CardMazos items={projects} />
-      </SidebarApp>
+      <CardMazos items={projects} />
     </main>
   );
 }

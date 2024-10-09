@@ -13,7 +13,7 @@ export const CardFooter = ({
 }: {
   className?: string;
   children: React.ReactNode;
-  favorito: boolean;
+  favorito?: boolean;
 }) => {
   const pathname = usePathname();
   const handleButton = (e: React.MouseEvent) => {

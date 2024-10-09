@@ -11,6 +11,7 @@ import CompassIcon from "../icons/CompassIcon";
 import UserIcon from "../icons/UserIcon";
 import { TitleWelcome } from "./TitleWelcome";
 import HeartIconFill from "../icons/HeartIconFill";
+import { Button } from "@nextui-org/button";
 
 export const SidebarApp = ({ children }: { children: React.ReactNode }) => {
   const links = [
@@ -55,7 +56,12 @@ export const SidebarApp = ({ children }: { children: React.ReactNode }) => {
       </Sidebar>
       <div className="flex flex-1">
         <div className="p-2 md:pl-28 md:p-10 flex flex-col gap-2 flex-1 w-full  min-h-dvh dark:bg-contenedor-dark">
-          <TitleWelcome />
+          <div className="flex justify-between items-center">
+            <TitleWelcome />
+            <Button className="self-end" color="secondary">
+              Iniciar Sesión
+            </Button>
+          </div>
           {children}
         </div>
       </div>
