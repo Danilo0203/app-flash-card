@@ -10,14 +10,24 @@ import CompassIcon from "../icons/CompassIcon";
 import UserIcon from "../icons/UserIcon";
 import { TitleWelcome } from "./TitleWelcome";
 import HeartIconFill from "../icons/HeartIconFill";
-import { Button } from "@nextui-org/button";
 import { ButtonLog } from "./button/ButtonLog";
+import { useSession } from "next-auth/react";
 
 export const SidebarApp = ({ children }: { children: React.ReactNode }) => {
-  const links = [
+  const { data: session } = useSession(); // Obtener la sesión
+
+  const publicLink = [
+    {
+      label: "Explorar",
+      href: "/explorar",
+      icon: <CompassIcon className="text-neutral-700 dark:text-neutral-200 size-8 flex-shrink-0" />,
+    },
+  ];
+
+  const protectedLinks = [
     {
       label: "Inicio",
-      href: "/",
+      href: "/dashboard",
       icon: <HomeIcon className="text-neutral-700 dark:text-neutral-200 size-8 flex-shrink-0" />,
     },
     {
@@ -26,16 +36,12 @@ export const SidebarApp = ({ children }: { children: React.ReactNode }) => {
       icon: <HeartIconFill className="fill-neutral-700 dark:fill-neutral-200 size-8 flex-shrink-0" />,
     },
     {
-      label: "Explorar",
-      href: "/explorar",
-      icon: <CompassIcon className="text-neutral-700 dark:text-neutral-200 size-8 flex-shrink-0" />,
-    },
-    {
       label: "Perfil",
       href: "/perfil",
       icon: <UserIcon className="text-neutral-700 dark:text-neutral-200 size-8 flex-shrink-0" />,
     },
   ];
+  const links = session ? [...publicLink, ...protectedLinks] : publicLink;
   const [open, setOpen] = useState(false);
   return (
     <div className="flex flex-col md:flex-row flex-1 min-h-dvh">
