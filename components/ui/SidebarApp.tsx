@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./sidebar";
 import Link from "next/link";
@@ -12,6 +11,7 @@ import UserIcon from "../icons/UserIcon";
 import { TitleWelcome } from "./TitleWelcome";
 import HeartIconFill from "../icons/HeartIconFill";
 import { Button } from "@nextui-org/button";
+import { ButtonLog } from "./button/ButtonLog";
 
 export const SidebarApp = ({ children }: { children: React.ReactNode }) => {
   const links = [
@@ -58,9 +58,7 @@ export const SidebarApp = ({ children }: { children: React.ReactNode }) => {
         <div className="p-2 md:pl-28 md:p-10 flex flex-col gap-2 flex-1 w-full  min-h-dvh dark:bg-contenedor-dark">
           <div className="flex justify-between items-center">
             <TitleWelcome />
-            <Button className="self-end" color="secondary">
-              Iniciar Sesión
-            </Button>
+            <ButtonLog />
           </div>
           {children}
         </div>

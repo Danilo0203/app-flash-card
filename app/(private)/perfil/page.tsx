@@ -8,7 +8,9 @@ import { Input } from "@nextui-org/input";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const datos = [
+type LabelType = "nombres" | "apellidos" | "correo" | "dpi";
+
+const datos: { label: LabelType; text: string; dpi: string }[] = [
   {
     label: "nombres",
     text: "Danilo",
@@ -43,7 +45,7 @@ export default function PerfilPage() {
 
   const [editProfile, setEditProfile] = useState(true);
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     console.log(data);
   };
 
